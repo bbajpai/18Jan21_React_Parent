@@ -17,3 +17,16 @@ export function getCars(keyword){
         payload:request
     }
 }
+
+
+export function carDetail(id){
+    const request = fetch(`${URL_ROOT}/carsIndex?id=${id}`, {method:'GET'})
+                    .then(response => response.json());
+
+    console.log('Inside Car Details action : ', request);
+
+    return{
+        type:'CAR_DETAIL',
+        payload:request
+    }
+}

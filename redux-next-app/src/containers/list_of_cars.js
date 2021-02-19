@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class ListOfCars extends Component{
 
@@ -7,13 +8,20 @@ class ListOfCars extends Component{
         super(props)
         console.log('Inside constructor ', this.props);
     }
-    listOfCars=({cars}) =>{
-        if(cars){
-            return (cars.map((car)=>{
+    listOfCars=({list}) =>{
+        if(list){
+            return (list.map((car)=>{
                 return(
-                    <div className="car_item">
-                            {car.model}
-                    </div>
+                    <Link key={car.id} to={`/car/${car.id}`} className="car_item">
+                        <div className="left">
+                            <img src={`/images/${car.image}`}/>
+                        </div>
+                        <div className="right">
+                            <h3>{car.model}</h3>
+                            <h5>{car.brand}</h5>
+                        </div>
+                            
+                    </Link>
                 )
             }))
         }
@@ -21,7 +29,7 @@ class ListOfCars extends Component{
     render(){
         return (
             <div>
-                {this.listOfCars(this.props)}
+                {this.listOfCars(this.props.cars)}
             </div>
         )
     }

@@ -10,7 +10,7 @@ import './app.css';
 
 
 import App from './components/app';
-import Car from './components/car';
+import Car from './containers/car';
 import reducers from './reducers'
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);

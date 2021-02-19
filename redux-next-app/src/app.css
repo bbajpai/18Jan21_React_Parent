@@ -21,3 +21,26 @@
 .main_search input:focus{
     outline: none;
 }
+
+.car_item{
+    display:flex;
+    border:1px solid lightgray;
+}
+
+.car_item .left{
+    width:200px;
+}
+
+.car_item .left img{
+    width:100%;
+}
+
+
+.car_item .right{
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.car_item h3, .car_item h5{
+    margin:0;
+}
